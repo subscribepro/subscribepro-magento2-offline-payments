@@ -1,0 +1,33 @@
+{
+    "name": "subscribepro/subscribepro-magento2-offline-payments",
+    "description": "Subscribe Pro Magento 2 Offline Payment Support Extension",
+    "type": "magento2-module",
+    "license": [ "MIT" ],
+    "version": "1.0.0",
+    "authors": [
+      {
+        "name": "SUBSCRIBE PRO INC",
+        "homepage": "http://www.subscribepro.com"
+      }
+    ],
+    "require": {
+      "subscribepro/subscribepro-magento2-ext": "~1.1"
+    },
+    "autoload": {
+      "files": [ "registration.php" ],
+      "psr-4": {
+        "SubscribePro\\OfflinePayments\\": ""
+      }
+    },
+    "autoload-dev": {
+      "psr-4": {
+        "SubscribePro\\OfflinePayments\\": "Test/Unit"
+      }
+    },
+    "repositories": [
+      {
+        "type": "composer",
+        "url": "https://repo.magento.com/"
+      }
+    ]
+  }
