@@ -3,7 +3,7 @@
     "description": "Subscribe Pro Magento 2 Offline Payment Support Extension",
     "type": "magento2-module",
     "license": [ "MIT" ],
-    "version": "1.0.0",
+    "version": "1.0.1",
     "authors": [
       {
         "name": "SUBSCRIBE PRO INC",
