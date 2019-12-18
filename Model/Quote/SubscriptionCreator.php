@@ -71,7 +71,7 @@ class SubscriptionCreator extends \Swarming\SubscribePro\Model\Quote\Subscriptio
     {
         $paymentProfileId = $this->getPaymentProfileId($order->getPayment());
         $paymentProfileId = $paymentProfileId ?: $order->getPayment()->getMethod();
-        $platformCustomer = $this->platformCustomerManager->getCustomerById($quote->getCustomerId());
+        $platformCustomer = $this->platformCustomerManager->getCustomerById($quote->getCustomerId(), true);
         $subscriptionsSuccess = [];
         $subscriptionsFail = 0;
         /** @var \Magento\Quote\Model\Quote\Address $address */
