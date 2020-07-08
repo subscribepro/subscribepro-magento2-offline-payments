@@ -28,6 +28,11 @@ class SubscriptionCreator extends \Swarming\SubscribePro\Model\Quote\Subscriptio
     protected $quoteItemHelper;
 
     /**
+     * @var \Swarming\SubscribePro\Helper\Quote
+     */
+    protected $quoteHelper;
+
+    /**
      * @var \Swarming\SubscribePro\Helper\OrderItem
      */
     protected $orderItemHelper;
@@ -43,13 +48,16 @@ class SubscriptionCreator extends \Swarming\SubscribePro\Model\Quote\Subscriptio
      * @param \Swarming\SubscribePro\Platform\Manager\Customer $platformCustomerManager
      * @param \Magento\Vault\Api\PaymentTokenManagementInterface $tokenManagement
      * @param \Swarming\SubscribePro\Helper\QuoteItem $quoteItemHelper
+     * @param \Swarming\SubscribePro\Helper\Quote $quoteHelper
      * @param \Swarming\SubscribePro\Helper\OrderItem $orderItemHelper
      * @param \Swarming\SubscribePro\Model\Quote\QuoteItem\SubscriptionCreator $quoteItemSubscriptionCreator
+     * @param \Psr\Log\LoggerInterface $logger
      */
     public function __construct(
         \Swarming\SubscribePro\Platform\Manager\Customer $platformCustomerManager,
         \Magento\Vault\Api\PaymentTokenManagementInterface $tokenManagement,
         \Swarming\SubscribePro\Helper\QuoteItem $quoteItemHelper,
+        \Swarming\SubscribePro\Helper\Quote $quoteHelper,
         \Swarming\SubscribePro\Helper\OrderItem $orderItemHelper,
         \Swarming\SubscribePro\Model\Quote\QuoteItem\SubscriptionCreator $quoteItemSubscriptionCreator,
         \Psr\Log\LoggerInterface $logger
@@ -57,6 +65,7 @@ class SubscriptionCreator extends \Swarming\SubscribePro\Model\Quote\Subscriptio
         $this->platformCustomerManager = $platformCustomerManager;
         $this->tokenManagement = $tokenManagement;
         $this->quoteItemHelper = $quoteItemHelper;
+        $this->quoteHelper = $quoteHelper;
         $this->orderItemHelper = $orderItemHelper;
         $this->quoteItemSubscriptionCreator = $quoteItemSubscriptionCreator;
         $this->logger = $logger;
@@ -71,7 +80,7 @@ class SubscriptionCreator extends \Swarming\SubscribePro\Model\Quote\Subscriptio
     {
         $paymentProfileId = $this->getPaymentProfileId($order->getPayment());
         $paymentProfileId = $paymentProfileId ?: $order->getPayment()->getMethod();
-        $platformCustomer = $this->platformCustomerManager->getCustomerById($quote->getCustomerId(), true);
+        $platformCustomer = $this->platformCustomerManager->getCustomerById($quote->getCustomerId(), $this->quoteHelper->hasSubscription($quote));
         $subscriptionsSuccess = [];
         $subscriptionsFail = 0;
         /** @var \Magento\Quote\Model\Quote\Address $address */
