@@ -10,10 +10,11 @@ class SubscriptionCreator extends \Swarming\SubscribePro\Model\Quote\QuoteItem\S
      * @param \Magento\Quote\Model\Quote\Item $quoteItem
      * @param int $platformCustomerId
      * @param int $paymentProfileId
-     * @param \Magento\Quote\Model\Quote\Address|null $address
+     * @param \Magento\Quote\Model\Quote\Address|null $shippingAddress
+     * @param \Magento\Quote\Model\Quote\Address|null $billingAddress
      * @return int
      */
-    public function create($quoteItem, $platformCustomerId, $paymentProfileId, $address = null)
+    public function create($quoteItem, $platformCustomerId, $paymentProfileId, $shippingAddress = null, $billingAddress = null)
     {
         $quote = $quoteItem->getQuote();
         $store = $quote->getStore();
@@ -36,10 +37,14 @@ class SubscriptionCreator extends \Swarming\SubscribePro\Model\Quote\QuoteItem\S
             $subscription->setMagentoStoreCode($store->getCode());
             $subscription->setSendCustomerNotificationEmail(true);
 
-            $subscription->setRequiresShipping((bool)$address);
-            if ($address) {
-                $this->importShippingAddress($subscription, $address);
-                $subscription->setMagentoShippingMethodCode($address->getShippingMethod());
+            $subscription->setRequiresShipping((bool)$shippingAddress);
+            if ($shippingAddress) {
+                $this->importShippingAddress($subscription, $shippingAddress);
+                $subscription->setMagentoShippingMethodCode($shippingAddress->getShippingMethod());
+            }
+
+            if ($billingAddress) {
+                $this->importBillingAddress($subscription, $billingAddress);
             }
 
             if ($this->subscriptionOptionsConfig->isAllowedCoupon($store->getCode())) {
