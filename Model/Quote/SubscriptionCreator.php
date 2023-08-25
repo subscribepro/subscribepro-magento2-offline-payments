@@ -1,6 +1,6 @@
 <?php
 
-namespace SubscribePro\OfflinePayments\Model\Quote;
+namespace Swarming\OfflinePayments\Model\Quote;
 
 class SubscriptionCreator extends \Swarming\SubscribePro\Model\Quote\SubscriptionCreator
 {

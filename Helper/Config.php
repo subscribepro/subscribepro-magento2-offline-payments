@@ -1,6 +1,6 @@
 <?php
 
-namespace SubscribePro\OfflinePayments\Helper;
+namespace Swarming\OfflinePayments\Helper;
 
 use Magento\Framework\App\Helper\Context;
 use Magento\Framework\App\Helper\AbstractHelper;

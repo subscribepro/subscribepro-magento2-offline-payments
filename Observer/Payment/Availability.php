@@ -1,12 +1,12 @@
 <?php
 
-namespace SubscribePro\OfflinePayments\Observer\Payment;
+namespace Swarming\OfflinePayments\Observer\Payment;
 
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
 use Swarming\SubscribePro\Gateway\Config\ConfigProvider;
 use Swarming\SubscribePro\Gateway\Config\Config as PaymentConfig;
-use SubscribePro\OfflinePayments\Helper\Config;
+use Swarming\OfflinePayments\Helper\Config;
 
 class Availability implements ObserverInterface
 {
@@ -21,7 +21,7 @@ class Availability implements ObserverInterface
     protected $quoteHelper;
 
     /**
-     * @var \SubscribePro\OfflinePayments\Helper\Config
+     * @var \Swarming\OfflinePayments\Helper\Config
      */
     protected $config;
 
@@ -36,7 +36,7 @@ class Availability implements ObserverInterface
     public function __construct(
         \Magento\Checkout\Model\Session $checkoutSession,
         \Swarming\SubscribePro\Helper\Quote $quoteHelper,
-        \SubscribePro\OfflinePayments\Helper\Config $config,
+        \Swarming\OfflinePayments\Helper\Config $config,
         \Psr\Log\LoggerInterface $logger
     ) {
         $this->checkoutSession = $checkoutSession;
