@@ -13,10 +13,10 @@ Please visit our documentation website and start with our step by step integrati
 
 1. Create the following directory path in your Magento installation:
 
-    app/code/Swarming/OfflinePayments
+    app/code/SubscribePro/OfflinePayments
 
 2. Copy the contents of this repository into that directory.
-3. Run bin/magento module:enable Swarming_OfflinePayments
+3. Run bin/magento module:enable SubscribePro_OfflinePayments
 4. Run bin/magento setup:upgrade
 5. Run bin/magento setup:di:compile
 6. Run bin/magento cache:flush
