@@ -67,7 +67,7 @@ class SubmitAllAfter extends \Swarming\SubscribePro\Observer\Checkout\SubmitAllA
      * @param \Magento\Framework\Event\Observer $observer
      * @return void
      */
-    public function execute(Observer $observer)
+    public function execute(Observer $observer): void
     {
         /** @var \Magento\Quote\Model\Quote $quote */
         $quote = $observer->getData('quote');
