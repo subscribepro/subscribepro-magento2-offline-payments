@@ -1,6 +1,6 @@
 <?php
 
-namespace Swarming\OfflinePayments\Model\Quote\QuoteItem;
+namespace SubscribePro\OfflinePayments\Model\Quote\QuoteItem;
 
 use Magento\Catalog\Api\Data\ProductInterface;
 

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <preference for="Swarming\SubscribePro\Observer\Payment\Availability" type="Swarming\OfflinePayments\Observer\Payment\Availability" />
-    <preference for="Swarming\SubscribePro\Observer\Checkout\SubmitAllAfter" type="Swarming\OfflinePayments\Observer\Checkout\SubmitAllAfter" />
-    <preference for="Swarming\SubscribePro\Model\Quote\SubscriptionCreator" type="Swarming\OfflinePayments\Model\Quote\SubscriptionCreator" />
-    <preference for="Swarming\SubscribePro\Model\Quote\QuoteItem\SubscriptionCreator" type="Swarming\OfflinePayments\Model\Quote\QuoteItem\SubscriptionCreator" />
+    <preference for="Swarming\SubscribePro\Observer\Payment\Availability" type="SubscribePro\OfflinePayments\Observer\Payment\Availability" />
+    <preference for="Swarming\SubscribePro\Observer\Checkout\SubmitAllAfter" type="SubscribePro\OfflinePayments\Observer\Checkout\SubmitAllAfter" />
+    <preference for="Swarming\SubscribePro\Model\Quote\SubscriptionCreator" type="SubscribePro\OfflinePayments\Model\Quote\SubscriptionCreator" />
+    <preference for="Swarming\SubscribePro\Model\Quote\QuoteItem\SubscriptionCreator" type="SubscribePro\OfflinePayments\Model\Quote\QuoteItem\SubscriptionCreator" />
 </config>

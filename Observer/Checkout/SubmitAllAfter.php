@@ -1,6 +1,6 @@
 <?php
 
-namespace Swarming\OfflinePayments\Observer\Checkout;
+namespace SubscribePro\OfflinePayments\Observer\Checkout;
 
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
@@ -30,7 +30,7 @@ class SubmitAllAfter extends \Swarming\SubscribePro\Observer\Checkout\SubmitAllA
     protected $cartItemOptionProcessor;
 
     /**
-     * @var \Swarming\OfflinePayments\Helper\Config
+     * @var \SubscribePro\OfflinePayments\Helper\Config
      */
     protected $offlinePaymentsConfig;
 
@@ -44,7 +44,7 @@ class SubmitAllAfter extends \Swarming\SubscribePro\Observer\Checkout\SubmitAllA
      * @param \Magento\Checkout\Model\Session $checkoutSession
      * @param \Swarming\SubscribePro\Model\Quote\SubscriptionCreator $subscriptionCreator
      * @param \Magento\Quote\Model\Quote\Item\CartItemOptionsProcessor $cartItemOptionProcessor
-     * @param \Swarming\OfflinePayments\Helper\Config $offlinePaymentsConfig
+     * @param \SubscribePro\OfflinePayments\Helper\Config $offlinePaymentsConfig
      * @param \Psr\Log\LoggerInterface $logger
      */
     public function __construct(
@@ -52,7 +52,7 @@ class SubmitAllAfter extends \Swarming\SubscribePro\Observer\Checkout\SubmitAllA
         \Magento\Checkout\Model\Session $checkoutSession,
         \Swarming\SubscribePro\Model\Quote\SubscriptionCreator $subscriptionCreator,
         \Magento\Quote\Model\Quote\Item\CartItemOptionsProcessor $cartItemOptionProcessor,
-        \Swarming\OfflinePayments\Helper\Config $offlinePaymentsConfig,
+        \SubscribePro\OfflinePayments\Helper\Config $offlinePaymentsConfig,
         \Psr\Log\LoggerInterface $logger
     ) {
         $this->generalConfig = $generalConfig;

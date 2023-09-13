@@ -1,6 +1,6 @@
 <?php
 
-namespace Swarming\OfflinePayments\Gateway\Config;
+namespace SubscribePro\OfflinePayments\Gateway\Config;
 
 class Config extends \Swarming\SubscribePro\Gateway\Config\Config
 {
