@@ -117,7 +117,9 @@ class SubscriptionCreator extends \Swarming\SubscribePro\Model\Quote\Subscriptio
             $subscriptionId = $this->quoteItemSubscriptionCreator->create(
                 $quoteItem,
                 $platformCustomer->getId(),
-                $paymentProfileId
+                $paymentProfileId,
+                null,
+                $quote->getBillingAddress()
             );
 
             if ($subscriptionId) {

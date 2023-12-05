@@ -11,7 +11,7 @@
       }
     ],
     "require": {
-      "subscribepro/subscribepro-magento2-ext": "~1.5"
+      "subscribepro/subscribepro-magento2-ext": "~1.7"
     },
     "autoload": {
       "files": [ "registration.php" ],
